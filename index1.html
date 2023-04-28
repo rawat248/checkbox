@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li><input type="checkbox" id="option-all" name="chk1" onchange="checkAll(this)" /> Select all</li>
+        <ul>
+            <li><input type="checkbox" id="option-a" value="1" name="chk" onclick = "return myFunc()"/>Item 1</li>
+            <li><input type="checkbox" id="option-b" value="2" name="chk" onclick = "return myFunc()"/>Item 2</li>
+            <li><input type="checkbox" id="option-c" value="3" name="chk" onclick = "return myFunc()"/>Item 3</li>
+            <li><input type="checkbox" id="option-d" value="4" name="chk" onclick = "return myFunc()" />Item 4</li>
+            <li><input type="checkbox" id="option-e" value="5" name="chk" onclick = "return myFunc()"/>Item 5</li>
+        </ul>
+    </ul>
+</body>
+<script>
+    var checkboxes = document.querySelectorAll("input[type='checkbox']");
+    function checkAll(myCheckbox){
+        if(myCheckbox.checked==true){
+            checkboxes.forEach(function(checkbox){
+                checkbox.checked = true;
+            });
+        }
+        else{
+            checkboxes.forEach(function(checkbox){
+                checkbox.checked = false;
+            });
+        }
+    }
+
+    function myFunc(){
+        var a = document.getElementsByName('chk');
+        var newvar = 0;
+        var count;
+        for(count=0;count<a.length;count++){
+            if(a[count].checked==true){
+                newvar = newvar+1;
+            }
+
+        }
+        if(newvar>=6){
+            var b = document.getElementsByName("chk1");
+            b.checked = true;
+           
+            return false;
+
+        }
+    }
+</script>
+
+</html>

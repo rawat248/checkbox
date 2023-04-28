@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li><input type="checkbox" name='check1' onchange="checkAll(this)" /> Select all</li>
+        <ul>
+            <li><input type="checkbox" name="check" id="check_1" onchange="checkChange()" />Item 1</li>
+            <li><input type="checkbox" name="check" id="check_2" onchange="checkChange()" />Item 2</li>
+            <li><input type="checkbox" name="check" id="check_3" onchange="checkChange()" />Item 3</li>
+            <li><input type="checkbox" name="check" id="check_4" onchange="checkChange()" />Item 4</li>
+            <li><input type="checkbox" name="check" id="check_5" onchange="checkChange()" />Item 5</li>
+        </ul>
+    </ul>
+</body>
+<script>
+    function checkAll(e){
+        var checkboxes = document.getElementsByName('check');
+        if(e.checked){
+            for(var i=0;i<checkboxes.length;i++){
+                checkboxes[i].checked = true;
+            }
+        }else{
+            for(var i=0;i<checkboxes.length;i++){
+                checkboxes[i].checked = false;
+            }
+        }
+    }
+    function checkChange(){
+        var totalCheckbox = document.querySelectorAll('input[name="check"]').length;
+        var totalChecked = document.querySelectorAll('input[name="check"]:checked').length;
+        if(totalCheckbox==totalChecked){
+            document.getElementsByName("check1")[0].checked = true;
+        }else{
+            document.getElementsByName('check1')[0].checked = false;
+        }
+    }
+
+</script>
+
+</html>
